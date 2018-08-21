@@ -1,0 +1,15 @@
+<div>
+  <div id="dialog" [ngClass]="{show:dialogVisible}">
+  </div>
+  <div class="dialogCtr" [ngClass]="{show:dialogVisible}">
+    <div class="title">输入值</div>
+    <div class="dialogContent">
+      <label>输入数值</label>
+      <input id="idInput" type="text" [(ngModel)]="iNumber" (change)="onChange()" />
+    </div>
+    <div class="foot">
+      <button class="btn" (click)="close()" [disabled]="active">OK</button>
+      <button class="btn" (click)="close()">cancel</button>
+    </div>
+  </div>
+</div>
