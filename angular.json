@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-app1": {
+    "carousel": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-app1",
+            "outputPath": "dist/carousel",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/font-awesome-4.7.0/css/font-awesome.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -50,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "my-app1:build"
+            "browserTarget": "carousel:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-app1:build:production"
+              "browserTarget": "carousel:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-app1:build"
+            "browserTarget": "carousel:build"
           }
         },
         "test": {
@@ -95,7 +96,7 @@
         }
       }
     },
-    "my-app1-e2e": {
+    "carousel-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +104,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "my-app1:serve"
+            "devServerTarget": "carousel:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "my-app1:serve:production"
+              "devServerTarget": "carousel:serve:production"
             }
           }
         },
@@ -123,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "my-app1"
+  "defaultProject": "carousel"
 }

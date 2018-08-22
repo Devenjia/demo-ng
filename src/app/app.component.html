@@ -1,14 +1,21 @@
- <div class="content">
-   <img class="left" src="{{leftPicPath}}" (click)="prev()" alt="">
-   <div *ngFor="let item of collection" >
-     <H1 class="title" *ngIf="item.active" >{{item.name}}</H1>
-      <img width="651px" height="400px" *ngIf="item.active"   src="{{ item.path }}" alt="">
-   </div>
-   <img class="right" src="{{RightPicPath}}" (click)="next()" alt="">
-   <div class="btnContent">
-      <button *ngFor="let item of collection;let sIndex = index" (click)="showSelectPic(sIndex)"
-      [ngClass]="{active:item.active,btn:true}" 
-      ></button>
-   </div>
-   <div class="title">创建于2018年8月9号---第一次课作业</div>
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="carouselCon">
+  <div class="carousel" id="carousel">
+    <ul class="carousel-indicators">
+      <li *ngFor="let item of items; let itemIndex = index" [ngClass]="{'active': item.current}" 
+        (click)="changeImg(itemIndex)" >
+      </li>
+    </ul>
+    <div class="carousel-inner" >
+      <div class="carousel-item" *ngFor="let item of items; let itemIndex = index" [ngClass]="{'active': item.current}">
+        <img [src]="item.imgUrl" >
+      </div>
+      <a href="javascript:void(0);" class="carousel-control-prev" (click)="changeImg(currentSlide - 1)">
+        <span class="fa fa-angle-left"></span>
+      </a>
+      <a href="javascript:void(0);" class="carousel-control-next" (click)="changeImg(currentSlide + 1)">
+        <span class="fa fa-angle-right"></span>
+      </a>
+    </div>
+  </div>
 </div>

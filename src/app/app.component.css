@@ -1,36 +1,87 @@
-.content{
-   float: left;
-   margin-left: 30%;
-   margin-top: 7%;
-   position: relative;
+.carouselCon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -600px;
+	width: 1200px;
+	height: 600px;
+	overflow: hidden;
 }
-.btnContent{
-    margin-top: 5%;
-    text-align: center;
+
+.carousel {
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
-.active{
-    background-color: red;
+
+.carousel-indicators {
+	position: absolute;
+	top: 90%;
+	left: 50%;
+	margin-left: -30%;
+	padding: 0;
+	width: 60%;
+	text-align: center;
+	z-index: 10;
 }
-.title{
-    text-align: center;
-    color: red;
-    margin: 0;
-    padding: 0;
+
+.carousel-indicators li {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	cursor: pointer;
 }
-.btn{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-left: 3%;
+
+.carousel-indicators li:not(:last-child) {
+	margin-right: 5px;
 }
-.left{
-    float: left;
-    position: absolute;
-    top: 41%;
+
+.carousel-indicators li.active {
+	width: 12px;
+	height: 12px;
+	background-color: #999;
+	margin-bottom: -1px;
+	border-color: #999;
 }
-.right{
-    float: right;
-    position: absolute;
-    right: 1%;
-    top: 41%;
+
+.carousel-inner {
+	position: relative;
+}
+
+.carousel-item {
+	display: none;
+	transition: display 3s ease-out;
+}
+
+.carousel-item.active {
+	display: block;
+}
+
+.carousel-control-prev, .carousel-control-next {
+	position: absolute;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 15%;
+	height: 100%;
+	color: #fff;
+	text-decoration: none;
+	font-size: 80px;
+}
+
+.carousel-control-prev {
+	left: 0;
+}
+
+.carousel-control-next {
+	right: 0;
+}
+
+.carousel-control-prev:hover, 
+.carousel-control-next:hover {
+	color: #999;
 }
