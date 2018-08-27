@@ -1,0 +1,15 @@
+<div>
+  <div class="contentRoot">
+    <label>原数</label>
+    <input type="text" [(ngModel)]="iNumber" />
+  </div>
+  <div class="content">
+    <childOne (click)="showDialog(2)" [iChildNumber]="iNumber*iNumber"></childOne>
+    <childOne (click)="showDialog(2)" [iChildNumber]="iNumber*iNumber"></childOne>
+  </div>
+  <div class="content">
+    <childTwo (click)="showDialog(3)" [iChildNumber]="iNumber*iNumber*iNumber"></childTwo>
+  </div>
+  <childDialog [iFalag]="iFalag" [dialogVisible]="dialogVisible" (setNumFn)="setNumFn($event)"></childDialog>
+  <router-outlet ></router-outlet>
+</div>

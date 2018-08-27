@@ -1,0 +1,17 @@
+<div>
+    <ul>
+        <ng-container *ngFor="let item of tabs;let sIndex = index">
+            <ng-container *ngIf="item.active">
+                <li class="active" (click)="changeTab(sIndex)">
+                    {{item.name}}
+                </li>
+            </ng-container>
+            <ng-container *ngIf="!item.active">
+                <li (click)="changeTab(sIndex)">
+                    {{item.name}}
+                </li>
+            </ng-container>
+        </ng-container>
+    </ul>
+    <router-outlet ></router-outlet>
+</div>
