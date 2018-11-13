@@ -1,0 +1,5 @@
+<div>
+  {{message}}
+  <input #myInput type="text" [(ngModel)]="message">
+  <button (click)="update.emit({text: message})">更新</button>
+</div>

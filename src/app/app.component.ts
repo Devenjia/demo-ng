@@ -1,54 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
+import { MailService } from './mail.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  public title = 'my-app1';
-  public leftPicPath = '../assets/left.png';
-  public RightPicPath = '../assets/right.png';
-  public iCurrentSelIndex = 0;
-  public collection = [
-    {
-      name: 'Yangyi',
-      active: true,
-      path: '../assets/1'
-    },
-    {
-      name: 'Yonggeng',
-      active: false,
-      path: '../assets/2'
-    },
-    {
-      name: 'Peter',
-      active: false,
-      path: '../assets/3'
-    },
-    {
-      name: 'Liuao',
-      active: false,
-      path: '../assets/4'
-    }
-  ];
-  changePic(iCurrentIndex) {
-    if (this.iCurrentSelIndex === this.collection.length - 1 && iCurrentIndex > this.iCurrentSelIndex) {
-      this.iCurrentSelIndex = 0;
-    } else if (this.iCurrentSelIndex === 0 && iCurrentIndex < this.iCurrentSelIndex) {
-      this.iCurrentSelIndex = this.collection.length - 1;
-    } else {
-      this.iCurrentSelIndex = iCurrentIndex;
-    }
-    this.showSelectPic(this.iCurrentSelIndex);
+export class AppComponent implements OnInit {
+
+
+  title = 'Hello, Angular';
+  //获取鼠标点击事件
+  onClick(event, value) {
+    console.log(event);
+    console.log(value);
+  }
+  //获取键盘Enter事件
+  onEnter(event, value) {
+    console.log(event);
+    console.log(value);
+  }
+  onUpdate(id, text) {
+    debugger
+    this.mailService.update(id, text);
+  }
+  constructor(
+    @Inject(MailService) private mailService,
+    @Inject('apiUrl') private apiUrl,
+
+  ) {
+
   }
 
-  showSelectPic(sIndex) {
-    for (var i = 0; i < this.collection.length; i++) {
-      this.collection[i].active = false;
-    }
-    this.collection[sIndex].active = true;
-    this.iCurrentSelIndex = sIndex;
+  ngOnInit() {
+
   }
 
 }
+// const injector = RelfectiveInjector.resolveAndCreate([
+//   // providers 数组定义了多个提供者，provide 属性定义令牌
+//   // useXXX 定义怎样创建的方法
+//   { provide: Person, useClass: Person },
+//   { provide: Address, useFactory: () => {
+//         if(env.testing)
+//             return new Address('辽宁', '沈阳', '和平区', 'xx街xx号');
+//         return new Address('北京', '北京', '朝阳区', 'xx街xx号');
+//     } 
+//   },
+//   { provide: Id, useFactory: (type) => {
+//         if(type === ID_TYPES.PASSPORT)
+//             return Id.getInstance(ID_TYPES.PASSPORT, someparam);
+//         if(type === ID_TYPES.IDCARD)
+//             return Id.getInstance(ID_TYPES.IDCARD);
+//         return Id.getDefaultInstance();
+//     } 
+//   }
+// ]);

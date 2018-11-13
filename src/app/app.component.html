@@ -1,12 +1,8 @@
-<div class="content">
-  <img class="left" src="{{leftPicPath}}" (click)="changePic(iCurrentSelIndex-1)" alt="">
-  <div *ngFor="let item of collection">
-    <H1 class="title" *ngIf="item.active">{{item.name}}</H1>
-    <img width="651px" height="400px" *ngIf="item.active" src="{{ item.path }}" alt="">
-  </div>
-  <img class="right" src="{{RightPicPath}}" (click)="changePic(iCurrentSelIndex+1)" alt="">
-  <div class="btnContent">
-    <button *ngFor="let item of collection;let sIndex = index" (click)="showSelectPic(sIndex)" [ngClass]="{active:item.active,btn:true}"></button>
-  </div>
-  <div class="title">创建于2018年8月9号---第一次课作业</div>
-</div>
+<h3>{{title}}</h3>
+<ul>
+  <li *ngFor="let message of mailService.messages;">
+    {{message.text}}
+  </li>
+</ul>
+<app-simple-form *ngFor="let message of mailService.messages;" [message]="message.text" (update)="onUpdate(message.id, $event.text)">
+</app-simple-form>
