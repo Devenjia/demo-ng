@@ -32,12 +32,17 @@ export class AppComponent {
       path: '../assets/4'
     }
   ];
-  next() {
-    this._setSelectIndex(this.iCurrentSelIndex + 1);
+  changePic(iCurrentIndex) {
+    if (this.iCurrentSelIndex === this.collection.length - 1 && iCurrentIndex > this.iCurrentSelIndex) {
+      this.iCurrentSelIndex = 0;
+    } else if (this.iCurrentSelIndex === 0 && iCurrentIndex < this.iCurrentSelIndex) {
+      this.iCurrentSelIndex = this.collection.length - 1;
+    } else {
+      this.iCurrentSelIndex = iCurrentIndex;
+    }
+    this.showSelectPic(this.iCurrentSelIndex);
   }
-  prev() {
-    this._setSelectIndex(this.iCurrentSelIndex - 1);
-  }
+
   showSelectPic(sIndex) {
     for (var i = 0; i < this.collection.length; i++) {
       this.collection[i].active = false;
@@ -45,14 +50,5 @@ export class AppComponent {
     this.collection[sIndex].active = true;
     this.iCurrentSelIndex = sIndex;
   }
-  _setSelectIndex(iNewIndex) {
-    if (this.iCurrentSelIndex === this.collection.length - 1 && iNewIndex > this.iCurrentSelIndex) {
-      this.iCurrentSelIndex = 0;
-    } else if (this.iCurrentSelIndex === 0 && iNewIndex < this.iCurrentSelIndex) {
-      this.iCurrentSelIndex = this.collection.length - 1;
-    } else {
-      this.iCurrentSelIndex = iNewIndex;
-    }
-    this.showSelectPic(this.iCurrentSelIndex);
-  }
+
 }
