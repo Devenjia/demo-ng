@@ -9,27 +9,27 @@ export class AppComponent {
 	title = 'carousel';
 	public items = [
 		{
-			imgUrl: '/src/assets/images/1.png',
+			imgUrl: '/assets/images/1.png',
 			current: true
 		}, 
 		{
-			imgUrl: '/src/assets/images/2.png',
+			imgUrl: '/assets/images/2.png',
 			current: false
 		}, 
 		{
-			imgUrl: '/src/assets/images/3.png',
+			imgUrl: '/assets/images/3.png',
 			current: false
 		}, 
 		{
-			imgUrl: '/src/assets/images/4.png',
+			imgUrl: '/assets/images/4.png',
 			current: false
 		}, 
 		{
-			imgUrl: '/src/assets/images/5.png',
+			imgUrl: '/assets/images/5.png',
 			current: false
 		}, 
 		{
-			imgUrl: '/src/assets/images/6.png',
+			imgUrl: '/assets/images/6.png',
 			current: false
 		}
 	];
